@@ -35,7 +35,6 @@ board.addEventListener('click', (e) => {
     }
 })
 
-
 function startGame() {
     setInterval(decreaseTime, 1000)
     createrandomCircle()
@@ -67,8 +66,13 @@ function finishGame() {
     timeEl.parentNode.classList.add('hide')
     board.innerHTML = `<div>
     <h1>Cчет: <span class="primary">${score}</span></h1>
-        <h4>Спасибо за игру! Обновите страницу.</h4>
+<!--    <a href="/index">-->
+            <h4>Спасибо за игру! <br/><hr/>Страница обновится автоматически.</h4>
+<!--</a>-->
 </div> `
+    setTimeout(() => {
+        window.location.reload()
+    }, 2500)
 }
 
 function createrandomCircle() {
@@ -95,4 +99,7 @@ function createrandomCircle() {
 function getRandomNumber(min, max) {
     return Math.round(Math.random() * (max - min) + min)
 }
+
+
+
 
